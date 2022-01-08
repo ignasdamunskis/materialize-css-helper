@@ -28,7 +28,7 @@ export function fixNonPassiveListeners(debug) {
   passiveSupport(events)
 
   if (debug) {
-    console.info('DEBUG: fixed non-passive event listeners', { events })
+    console.info('[Materialize Helper] Fixed non-passive event listeners', { events })
   }
 }
 
@@ -43,7 +43,7 @@ export function fixSelectOptions(debug) {
     const options = document.querySelectorAll('.select-wrapper ul.select-dropdown li')
   
     if (options.length && debug) {
-      console.info('DEBUG: fixed select options', { options })
+      console.info('[Materialize Helper] Fixed select options', { options })
     }
   
     for (const option of options) {
@@ -72,7 +72,7 @@ export function fixSelectTriggers(debug) {
     }
 
     if (triggers.length && debug) {
-      console.info('DEBUG: fixed select triggers', { triggers })
+      console.info('[Materialize Helper] Fixed select triggers', { triggers })
     }
   }, 0)
 }
@@ -91,7 +91,7 @@ export function fixAutocompletedInputLabels(debug) {
       input.classList.add('valid')
 
       if (debug) {
-        console.info('DEBUG: autocompleted input label', { input, label })
+        console.info('[Materialize Helper] Fixed autocompleted input label', { input, label })
       }
     }
   })
