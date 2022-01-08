@@ -1,0 +1,24 @@
+{
+  "name": "materialize-css-helper",
+  "version": "1.0.0",
+  "description": "Materialize Helper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignasdamunskis/materialize-css-helper.git"
+  },
+  "author": "Ignas Damunskis <ignas3run@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ignasdamunskis/materialize-css-helper/issues"
+  },
+  "homepage": "https://github.com/ignasdamunskis/materialize-css-helper#readme",
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
