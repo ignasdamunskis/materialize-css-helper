@@ -1,5 +1,25 @@
 import { passiveSupported, passiveSupport } from 'passive-events-support/src/utils'
 
+export function initMaterializeHelper(customOptions) {
+  const options = {
+    debug: true,
+    nonPassiveListeners: true,
+    selectOptions: true,
+    selectTriggers: true,
+    autocompletedInputLabels: true,
+    ...customOptions
+  }
+
+  if (options.nonPassiveListeners)
+    fixNonPassiveListeners(options.debug)
+  if (options.selectOptions)
+    fixSelectOptions(options.debug)
+  if (options.selectTriggers)
+    fixSelectTriggers(options.debug)
+  if (options.autocompletedInputLabels)
+    fixAutocompletedInputLabels(options.debug)
+}
+
 /**
  * Issue: MaterializeCSS is adding non-passive event listeners.
  */
@@ -17,40 +37,44 @@ export function fixNonPassiveListeners(debug) {
  * When clicking one option, other one is being selected...
  */
 export function fixSelectOptions(debug) {
-  let dragging = false
-  const opts = passiveSupported() ? { passive: true } : false
-  const options = document.querySelectorAll('.select-wrapper ul.select-dropdown li')
-
-  if (options.length && debug) {
-    console.info('DEBUG: fixed select options', { options })
-  }
-
-  for (const option of options) {
-    option.addEventListener('touchmove', () => { dragging = true }, opts)
-    option.addEventListener('touchstart', () => { dragging = false }, opts)
-    option.addEventListener('touchend', (e) => {
-      if (dragging) return
-      else e.stopPropagation()
-    }, opts)
-  }
+  setTimeout(() => { // To be called after M.FormSelect.init()
+    let dragging = false
+    const opts = passiveSupported() ? { passive: true } : false
+    const options = document.querySelectorAll('.select-wrapper ul.select-dropdown li')
+  
+    if (options.length && debug) {
+      console.info('DEBUG: fixed select options', { options })
+    }
+  
+    for (const option of options) {
+      option.addEventListener('touchmove', () => { dragging = true }, opts)
+      option.addEventListener('touchstart', () => { dragging = false }, opts)
+      option.addEventListener('touchend', (e) => {
+        if (dragging) return
+        else e.stopPropagation()
+      }, opts)
+    }
+  }, 0)
 }
 
 /**
  * Issue: Select triggers are causing Lighthouse warnings.
  */
 export function fixSelectTriggers(debug) {
-  const triggers = document.querySelectorAll('input.select-dropdown.dropdown-trigger')
+  setTimeout(() => { // To be called after M.FormSelect.init()
+    const triggers = document.querySelectorAll('input.select-dropdown.dropdown-trigger')
 
-  for (const trigger of triggers) {
-    const wrapper = trigger.closest('.select-wrapper')
-    const select = wrapper.querySelector('select')
-    const option = select.options[select.selectedIndex]
-    trigger.placeholder = option.text
-  }
+    for (const trigger of triggers) {
+      const wrapper = trigger.closest('.select-wrapper')
+      const select = wrapper.querySelector('select')
+      const option = select.options[select.selectedIndex]
+      trigger.placeholder = option.text
+    }
 
-  if (triggers.length && debug) {
-    console.info('DEBUG: fixed select triggers', { triggers })
-  }
+    if (triggers.length && debug) {
+      console.info('DEBUG: fixed select triggers', { triggers })
+    }
+  }, 0)
 }
 
 /**
