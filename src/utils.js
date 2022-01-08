@@ -4,7 +4,7 @@ import { passiveSupported, passiveSupport } from 'passive-events-support/src/uti
  * Issue: MaterializeCSS is adding non-passive event listeners.
  */
 export function fixNonPassiveListeners(debug) {
-  const events = ['touchstart', 'touchmove']
+  const events = ['touchstart', 'touchmove', 'touchend']
   passiveSupport(events)
 
   if (debug) {
