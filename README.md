@@ -58,7 +58,7 @@ Every issue fix is optional and has it's toggle option.
 
 | Option | Description | Type | Default |
 | --- | --- | --- | --- |
-| debug | If enabled, fixed elements will be logged into console. | `boolean` | `true` |
+| debug | If enabled, fixed elements will be logged into console. | `boolean` | `false` |
 | nonPassiveListeners | Whether non-passive event listeners should be fixed. | `boolean` | `true` |
 | selectOptions | Whether `M.Select` element behaviour for **iOS** should be fixed. | `boolean` | `true` |
 | selectTriggers | Whether select trigger input should have a placeholder assigned. | `boolean` | `true` |

@@ -2,7 +2,7 @@ import { passiveSupported, passiveSupport } from 'passive-events-support/src/uti
 
 export function initMaterializeHelper(customOptions) {
   const options = {
-    debug: true,
+    debug: false,
     nonPassiveListeners: true,
     selectOptions: true,
     selectTriggers: true,
