@@ -1,6 +1,6 @@
 {
   "name": "materialize-css-helper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Materialize Helper",
   "main": "src/index.js",
   "scripts": {
