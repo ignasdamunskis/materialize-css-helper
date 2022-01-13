@@ -546,10 +546,10 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-passive-events-support@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/passive-events-support/-/passive-events-support-1.0.10.tgz#10fce42ad30ebfd1dd6bbf78dc5ebf216523f04c"
-  integrity sha512-/IQcLqrYdMMq9YUjcNjB+gjkebE9BVB25D7hM+EsdzA8piegdu31picda/f0Ql6TRIq+U7v50/bVriHku7LYsQ==
+passive-events-support@^1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/passive-events-support/-/passive-events-support-1.0.26.tgz#68e26e2c5879744f14592061c85cd2c1eeaf5ccf"
+  integrity sha512-gaYkY358/0uaKjAqRPpA1dd8hXR2sYgeeTuqCTw/9eiDxv6HH63UdTQ/zauMfCGPLbP2eCLWvpU1Y10CrKsU4Q==
 
 path-exists@^4.0.0:
   version "4.0.0"
