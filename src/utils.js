@@ -25,7 +25,7 @@ export function initMaterializeHelper(customOptions) {
  */
 export function fixNonPassiveListeners(debug) {
   const events = ['touchstart', 'touchmove', 'touchend']
-  passiveSupport(events)
+  passiveSupport({ events })
 
   if (debug) {
     console.info('[Materialize Helper] Fixed non-passive event listeners', { events })
