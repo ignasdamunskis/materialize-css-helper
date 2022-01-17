@@ -1,35 +1,20 @@
-import { passiveSupported, passiveSupport } from 'passive-events-support/src/utils'
+import { passiveSupported } from 'passive-events-support/src/utils'
 
 export function initMaterializeHelper(customOptions) {
   const options = {
     debug: false,
-    nonPassiveListeners: true,
     selectOptions: true,
     selectTriggers: true,
     autocompletedInputLabels: true,
     ...customOptions
   }
 
-  if (options.nonPassiveListeners)
-    fixNonPassiveListeners(options.debug)
   if (options.selectOptions)
     fixSelectOptions(options.debug)
   if (options.selectTriggers)
     fixSelectTriggers(options.debug)
   if (options.autocompletedInputLabels)
     fixAutocompletedInputLabels(options.debug)
-}
-
-/**
- * Issue: MaterializeCSS is adding non-passive event listeners.
- */
-export function fixNonPassiveListeners(debug) {
-  const events = ['touchstart', 'touchmove', 'touchend']
-  passiveSupport({ events })
-
-  if (debug) {
-    console.info('[Materialize Helper] Fixed non-passive event listeners', { events })
-  }
 }
 
 /**
