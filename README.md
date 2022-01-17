@@ -53,7 +53,7 @@ yarn add materialize-css-helper
 
 By default, this package will automatically resolve all the in the [Known Issues](#known-issues) section mentioned issues. It's script will automatically be executed upon `DOMContentLoaded`.
 
-Make sure this package is loaded before the **Materialize** script.
+Make sure this package is loaded **after** the **Materialize** script.
 
 ```js
 // With JS
